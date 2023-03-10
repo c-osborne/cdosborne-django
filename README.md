@@ -1,1 +1,0 @@
-# cdosborne-django
