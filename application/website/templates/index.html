@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+<html>
+    <head>
+        {% block title %} Home {% endblock %}
+    </head>
+    <body>
+        <div class = "banner">
+            {% block banner %} 
+                <h1>Hi, I'm Chris!</h1> 
+                <br>
+                <h2>GIS Developer</h2>
+                <br>
+                <br>
+                <p>Welcome to my website. Below are a handful of WebGIS examples and tutorials.</p>
+            {% endblock %}
+        </div>
+
+
+        <div class = "content">
+            {% block content %}   
+                {% for item in content %}
+                    <div class="custom-card">
+                        <div class = "custom-card-image" style = "background-image: url('{{item.image}}');">
+                        </div>
+                        <div class="custom-card-body">
+                            <h5 class="card-title">{{item.title}}</h5>
+                            <p class="card-text">{{item.summary}}</p>
+                            <a href="{% url item.link %}" class="btn btn-light">Demo</a>
+                            <p><small>{{item.date}}</small></p>
+                        </div>
+                      </div>
+
+                    {% endfor %}
+            {% endblock %}
+        </div>
+
+        <code>Try folium map with tileservegl data</code>
+
+    </body>
+
+</html>

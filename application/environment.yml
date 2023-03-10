@@ -1,0 +1,13 @@
+name: django
+channels:
+  - conda-forge
+dependencies:
+  - python=3.9
+  - django=4.1.7
+  - psycopg2=2.9.3
+  - django-leaflet=0.28.3
+  - django-environ=0.4.5
+  - gdal=3.6.2
+  - gunicorn=20.1.0
+  - folium=0.14.0
+  # get version from: https://anaconda.org/search

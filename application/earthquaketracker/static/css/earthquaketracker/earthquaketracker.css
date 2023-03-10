@@ -1,0 +1,61 @@
+body {
+    margin: auto;
+    min-width: 500px;
+}
+
+body > div {
+    font-family:"Trebuchet MS", sans-serif;
+}
+
+.map {
+    width: 100%;
+    height: 100vh;
+	color: black;
+}
+
+.information {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	background-color: black;
+}
+
+.info-icon {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+}
+
+.info { 
+	display: none;
+	color: yellow;
+	font-size: 70%;
+	font-style: italic;
+	align-items: center;
+	justify-content: center;
+	padding-left: 1%;
+}
+
+.dateDialogue {
+	display: flex;
+	color: white;
+	justify-content: center;
+	align-items: center;
+}
+
+input {
+	width: 60%;
+	border: 2px solid #ffe100;
+	border-radius: 4px;
+	font-family:"Trebuchet MS", sans-serif;
+	font-size: 100%;
+	text-align: center;
+  }
+
+  .countDialogue {
+	display: flex;
+	color: white;
+	justify-content: center;
+	align-items: center;
+}

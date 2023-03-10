@@ -1,0 +1,46 @@
+version: "3.9"
+   
+services:
+  db:
+    build: ../postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5001:5432"
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+  tileservergl:
+    build: ../tileservergl
+    volumes:
+      - ../tileservergl/tldata:/data
+    expose:
+      - 8080
+    command: "--verbose -c /data/config1.json"
+  web:
+    build: .
+    command: sh -c "gunicorn djangoserver.wsgi:application --bind 0.0.0.0:8000"
+    volumes:
+      - .:/djangoserver
+      - ./staticfiles:/static
+    expose:
+      - 8000
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    depends_on:
+      - db
+  nginx:
+    build: ../nginx
+    links:
+      - web
+    ports:
+      - 1337:80
+    volumes:
+      - ./staticfiles:/static
+    depends_on:
+      - web
+volumes:
+  pgdata:

@@ -1,0 +1,53 @@
+<html>
+    <head>
+        {% load static %}
+        {% block title %} International Space Station tracker {% endblock %}
+        <!-- CESIUM -->
+        <link rel="stylesheet" href="{% static '/css/isstracker/isstracker.css' %}" />
+        <script src="https://cesium.com/downloads/cesiumjs/releases/1.78/Build/Cesium/Cesium.js"></script>
+        <link href="https://cesium.com/downloads/cesiumjs/releases/1.78/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+        <!--css bootstrap and font awesome-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+
+
+    <body>
+        {% block banner %}
+        <style type="text/css">
+            .banner{display: none}
+        </style>
+        {% endblock %}
+        
+
+        <div class = "content">
+            {% block content %}
+            <!-- cesium container, call script within-->
+            <div id="cesiumContainer" class = "map">
+                <script src = "{% static '/js/isstracker/cesium.js' %}" ></script>
+
+                <div class = title>The International Space Station</div>
+
+                <div id = "position-info" class = "position-info">
+                    latitude: <span id = "lat"></span><br>
+                    longitude: <span id = "lng"></span><br>
+                    altitude: <span id = "alt"></span>km
+                </div>
+
+                <div id = "video-toggle" class = "video-toggle">
+                <!--script to toggle display-->
+                <script src = "{% static '/js/isstracker/displayVideo.js' %}"></script>
+                <button class="btn btn-secondary btn-sm" id="toggle-button" type="toggle-button" onclick=displayVideo()>Show live feed</button>
+                </div>
+
+                <div id = live-video class = live-video>
+                <!--https://eol.jsc.nasa.gov/ESRS/HDEV/-->
+                <iframe width="480" height="270" src="https://ustream.tv/embed/17074538" scrolling="no" allowfullscreen webkitallowfullscreen frameborder="0" style="border: 0 none transparent;"></iframe>
+                </div>
+
+                <div class = attribution>ISS model <a href ='https://skfb.ly/6oOBH'>by uperesito</a>, licensed under  <a href ='http://creativecommons.org/licenses/by/4.0/'>Creative Commons Attribution.</a></div>
+            </div>
+            {% endblock %}
+        </div>
+    </body>
+</html>

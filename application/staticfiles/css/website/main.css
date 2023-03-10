@@ -1,0 +1,94 @@
+/* base.html templates element */
+/*-----------------------------*/
+body {
+    min-width: 500px;
+}
+.banner {
+    display: flex;
+    flex-direction: column;
+    height: 30vh;
+    width: 100%;
+    padding: 5%;
+    color: white;
+    text-shadow: 2px 2px 15px black;
+    text-align: left;
+    justify-content: center;
+    align-items: left;
+    background-image: url('../../images/website/daniel-leone-g30P1zcOzXo-unsplash.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    background-color: white;
+    color: white;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+/*-------------cards--------------*/
+.custom-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 10px; 
+    padding: 2%;
+    height: 25em; 
+    width: 350px; 
+    background-color: rgb(43, 133, 160);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: 1s ease; /*need to add transition for smooth return after hover */
+}
+
+.custom-card:hover {
+    background-color: rgb(0, 114, 149);
+    border-radius: 5px;
+    transition: 3s ease;
+}
+
+
+.custom-card-image{
+    display: flex;
+    width: 100%;
+    height: 100px;
+    border-radius: 20px;
+    background-color: white;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    transition:  1s ease;
+    
+
+}
+.custom-card:hover .custom-card-image {
+    background-size: 120%;
+    border-radius: 5px;
+    transition: 3s ease;
+}
+
+.custom-card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 220px;
+    font-size: 90%;
+ 
+}
+
+.footer {
+    display: flex;
+    height: 10vh;
+    width: 100%;
+    background-color: rgb(43, 133, 160);
+    color: white;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+

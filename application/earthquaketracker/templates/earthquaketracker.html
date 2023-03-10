@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+
+        {% extends "base.html" %}
+
+        {% load static %}
+
+        {% block title %} Earthquake tracker {% endblock %}
+        <!--CSS-->
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
+        <link rel="stylesheet" href="{% static '/css/earthquaketracker/earthquaketracker.css' %}" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!--JS-->
+        <!--jquery-->
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src = "{% static '/js/earthquaketracker/showInfo.js' %}"></script>
+        <!--leaflet-->
+        <script src = "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script> <!-- both leaflet .css and .js required. Think of them as modules or dependencies-->
+        
+        <!--required to fix scaling on mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    </head>
+
+    <body>
+        <div class = "banner">
+            {% block banner %} 
+                <h1>Earthquake Tracker</h1> 
+                <br>
+                <p>The USGS earthquake monitoring API is queried for the selected date and plotted as points on a Leaflet.js map. Pop-ups are created for each point with summary details from the API. Changing the date via the date picker will refresh the points for that specific date.</p>
+            {% endblock %}
+        </div>
+        <div class = "content">
+            {% block content %}  
+            <!--DATEPICKER-->
+            <script>
+                $( function() {
+                    $( "#datepicker" ).datepicker({dateFormat: 'yy-mm-dd'});
+                } );
+            </script>
+            <div id = "information" class = "information">
+                <div id = "dateDialogue" class = "dateDialogue">
+                    Date: &nbsp; <input type="text" id="datepicker" onchange = getDate()>
+                </div>
+                <div id = "countDialogue" class = "countDialogue">
+                    Total: &nbsp; <span id = "count"></span>
+                </div>
+                <div id = "info-icon" class = "info-icon" onclick = showInfo()>
+                    &nbsp; <i class="fa fa-info-circle" style = "color:#ffe100"></i>
+                </div>
+                <div id = "info" class = "info">
+                    Only earthquakes with a magnitude of 3 or greater are shown.
+                </div>
+            </div>
+
+
+
+            <!--MAP-->
+            <div id = "map" class = "map">
+                <script src = "{% static '/js/earthquaketracker/map.js' %}"></script>
+            </div>
+
+            {% endblock %}
+        </div>
+
+    </body>
+
+</html>
