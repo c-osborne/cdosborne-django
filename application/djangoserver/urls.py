@@ -20,5 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('website.urls')),
     path('earthquaketracker/', include('earthquaketracker.urls')),
-    path('isstracker/', include('isstracker.urls'))
+    path('isstracker/', include('isstracker.urls')),
+    path('foliumexample/', include('foliumexample.urls'))
 ]
