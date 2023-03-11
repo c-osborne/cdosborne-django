@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'website',
     'earthquaketracker',
-    'isstracker'
+    'isstracker',
+    'foliumexample'
 ]
 
 MIDDLEWARE = [
