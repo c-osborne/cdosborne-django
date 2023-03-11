@@ -33,11 +33,10 @@
                 <!--required to fix scaling on mobile-->
                 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-            
-                <h1>Earthquake Tracker</h1> 
+                <h1>{{filtered_content.title}} </h1>
                 <br>
-                <p>The USGS earthquake monitoring API is queried for the selected date and plotted as points on a Leaflet.js map. Pop-ups are created for each point with summary details from the API. Changing the date via the date picker will refresh the points for that specific date.</p>
-            
+                <p>{{filtered_content.content}}</p>
+
             {% endblock %}
         </div>
         <div class = "content">
