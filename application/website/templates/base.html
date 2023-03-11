@@ -51,6 +51,19 @@
                     {% endfor %}
                     </ul>
                 </li>
+                <!-- Python category-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Python
+                    </a>
+                    <ul class="dropdown-menu">
+                    {% for item in content %}
+                        {% if item.category == "Python" %}
+                            <li><a class="dropdown-item" href="{% url item.link %}" >{{item.title}}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                    </ul>
+                </li>
                 <!-- non categorised topics-->
                 {% for item in content %}
                     {% if item.category == "NULL" %}
