@@ -4,7 +4,8 @@ from website.models import Content
 #fetch all the Content from models
 def content():
     data = Content.objects.all().order_by('title')
-    context = {'content': data}
+    filtered_data = Content.objects.get(title__exact='Earthquake Tracker')
+    context = {'content': data, 'filtered_content': filtered_data}
     return context
 
 #homepage
