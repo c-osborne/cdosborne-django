@@ -1,0 +1,30 @@
+<html>
+    <head>
+        {% extends "base.html" %}
+        {% block title %} {{filtered_content.title}} {% endblock %}
+    </head>
+
+    <body>
+
+        <div class = "banner">
+            
+            {% block banner %} 
+                <h1>{{filtered_content.title}} </h1>
+                <br>
+                <p>{{filtered_content.content}}</p>
+            {% endblock %}
+
+        </div>
+
+        <div class = "content">
+
+            {% block content %}
+                {{ folium_map|safe }}
+            {% endblock %}  
+
+        </div>
+
+    </body>
+
+
+</html>
