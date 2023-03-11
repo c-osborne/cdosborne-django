@@ -38,6 +38,7 @@ services:
       - web
     ports:
       - 1337:80
+      - 8080:8080
     volumes:
       - ./staticfiles:/static
     depends_on:
